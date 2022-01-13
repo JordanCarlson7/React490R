@@ -1,0 +1,8 @@
+Component:
+    Reusable building blocks in your user interface
+    build components and then tell react how to organize them on the website
+    - Reusable
+    - Separation of concerns
+    components combine HTML CSS and JS
+React:
+    Declarative approach, define the desired end state, no hard coding, react magically provides the right page according to your conditions.
