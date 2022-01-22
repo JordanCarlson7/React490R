@@ -1,9 +1,9 @@
-import React from "react";
-import Expenses from "./components/Expenses";
+import React, { useState } from "react";
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
-// const APP = () => {}
-function App() {
-  const expenses = [
+
+  const INITIAL_EXPENSES = [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -25,6 +25,17 @@ function App() {
     },
   ];
 
+
+  
+const App = () => {
+  const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
+
+  const addExpenseHandler = (expense) => {
+    setExpenses(prevExpenses => {
+      return [expense, ...prevExpenses];
+    });
+  };
+
     //same things but older style of React or a very literal way to using react
   // return React.createElement(
   //   "div",
@@ -35,10 +46,11 @@ function App() {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
-}
+};
+
 
 export default App;
